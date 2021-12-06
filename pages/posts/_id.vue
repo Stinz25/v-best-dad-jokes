@@ -32,6 +32,19 @@ export default {
       return this.$store.state.posts.all.filter(post => post.id !== this.id);
     }
   },
+  head() {
+    const head = {
+      title: 'Posts details',
+      meta: [],
+    }
+    if (this.post != null) {
+      head.title = this.post.title
+      head.meta.push({
+        content: this.post.content || 'No description available.',
+      })
+    }
+    return head
+  },
 };
 </script>
 

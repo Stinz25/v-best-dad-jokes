@@ -41,7 +41,7 @@ export default {
   },
   mounted() {
     return this.$store.dispatch('posts/getPosts');
-  }
+  },
 };
 </script>
 
