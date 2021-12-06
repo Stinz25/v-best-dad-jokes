@@ -1,6 +1,6 @@
 export const state = () => ({
   id: 1,
-  all: [
+/*  all: [
     {
       id: 1,
       slug: "snowman",
@@ -83,5 +83,22 @@ export const state = () => ({
       content:
         '"How much does it cost Santa to park his sleigh?" "Nothing, it\'s on the house."',
     },
-  ],
+  ],*/
+  all: [],
 });
+
+export const mutations = {
+  updatePosts(state, newContent) {
+    state.all = newContent
+  },
+}
+
+export const actions = {
+   getPosts({ commit }) {
+    const data = this.$axios.get('http://localhost:3001/posts').then(function (response) {
+      console.log(data);
+      commit('updatePosts', response.data)
+      return response.data;
+    });
+  },
+}

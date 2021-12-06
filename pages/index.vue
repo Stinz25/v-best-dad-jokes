@@ -37,7 +37,10 @@ export default {
   computed: {
     posts() {
       return this.$store.state.posts.all;
-    }
+    },
+  },
+  mounted() {
+    return this.$store.dispatch('posts/getPosts');
   }
 };
 </script>
